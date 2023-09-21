@@ -19,7 +19,7 @@ spec:
           image: hyeonwoo5342/unithon-backend-main:2
           imagePullPolicy: Always
           ports:
-            - containerPort: 80
+            - containerPort: 8000
           resources:
             limits:
               memory: '500Mi'
@@ -27,13 +27,13 @@ spec:
           livenessProbe:
             httpGet:
               path: /
-              port: 80
+              port: 8000
             initialDelaySeconds: 15
             periodSeconds: 10
           readinessProbe:
             httpGet:
               path: /
-              port: 80
+              port: 8000
             initialDelaySeconds: 5
             periodSeconds: 10
           envFrom:
