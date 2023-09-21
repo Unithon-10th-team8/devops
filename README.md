@@ -2,7 +2,8 @@
 gitops &amp; infrastructure repository
 
 ## Infrastructure
-TBD
+- Kubernetes (Vultr Kubernetes Engine)
+- Terraform
 
 ## CI/CD Pipeline
 - Trigger : Git Commit
