@@ -1886,19 +1886,27 @@ server:
 
   ingress:
     # -- Enable an ingress resource for the Argo CD server
-    enabled: false
+    enabled: true
     # -- Additional ingress annotations
-    annotations: {}
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      kubernetes.io/tls-acme: "true"
+      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+      # If you encounter a redirect loop or are getting a 307 response code
+      # then you need to force the nginx ingress to connect to the backend using HTTPS.
+      #
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     # -- Additional ingress labels
     labels: {}
     # -- Defines which ingress controller will implement the resource
-    ingressClassName: ""
+    ingressClassName: "nginx"
 
     # -- List of ingress hosts
     ## Argo Ingress.
     ## Hostnames must be provided if Ingress is enabled.
     ## Secrets must be manually created in the namespace
-    hosts: []
+    hosts:
+      - argo.haenu.dev
     # - argocd.example.com
 
     # -- List of ingress paths
@@ -1917,13 +1925,16 @@ server:
     #         name: use-annotation
 
     # -- Ingress TLS configuration
-    tls: []
+    tls:
+    - hosts:
+        - argo.haenu.dev
+      secretName: argocd-secret # do not change, this is provided by Argo CD
       # - secretName: your-certificate-name
       #   hosts:
     #     - argocd.example.com
 
     # -- Uses `server.service.servicePortHttps` instead `server.service.servicePortHttp`
-    https: false
+    https: true
 
   # dedicated ingress for gRPC as documented at
   # Ref: https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/
