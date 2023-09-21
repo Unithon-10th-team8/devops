@@ -1,4 +1,4 @@
-terraform/vultr_key.tfvars
+terraform/vultr/vultr_key.tfvars
 terraform/.terraform
 
 
