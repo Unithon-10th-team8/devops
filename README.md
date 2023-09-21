@@ -1,6 +1,12 @@
 # devops
 gitops &amp; infrastructure repository
 
+## Folder Information
+- `app` - Base GitOps repository for application deployment
+- `deployment` - Base GitOps repository for ArgoCD deployment
+- `terraform` - Base Terraform repository for infrastructure provisioning
+- `kubernetes` - Base Kubernetes repository for Kubernetes configuration
+
 ## Infrastructure
 - Kubernetes (Vultr Kubernetes Engine)
 - Terraform
