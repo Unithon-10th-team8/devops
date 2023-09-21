@@ -23,7 +23,7 @@ spec:
           resources:
             limits:
               memory: '400Mi'
-              cpu: '400m'
+              cpu: '350m'
           livenessProbe:
             httpGet:
               path: /
@@ -50,7 +50,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: unithon-backend-main
-  minReplicas: 4
+  minReplicas: 3
   maxReplicas: 10
   metrics:
     - type: Resource
