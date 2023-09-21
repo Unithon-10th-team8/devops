@@ -23,18 +23,18 @@ spec:
           resources:
             limits:
               memory: '400Mi'
-              cpu: '350m'
+              cpu: '300m'
           livenessProbe:
             httpGet:
               path: /
               port: 8000
-            initialDelaySeconds: 15
+            initialDelaySeconds: 20
             periodSeconds: 10
           readinessProbe:
             httpGet:
               path: /
               port: 8000
-            initialDelaySeconds: 5
+            initialDelaySeconds: 10
             periodSeconds: 10
           envFrom:
             - secretRef:
