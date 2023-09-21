@@ -17,3 +17,9 @@ gitops &amp; infrastructure repository
 - Container Registry : Docker Hub
 - CD : ArgoCD
 
+## Tools
+### Sealed Secrets
+convert environment variables to kubernetes secrets (sealed secrets)
+```bash
+envto --source ~/PycharmProjects/backend/secrets/.env
+```
