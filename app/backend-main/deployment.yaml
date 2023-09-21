@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: unithon-backend-main
-          image: hyeonwoo5342/unithon-backend-main:2
+          image: hyeonwoo5342/unithon-backend-main:3
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
