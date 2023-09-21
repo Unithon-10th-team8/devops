@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unithon-backend-dev
+  namespace: unithon
+  labels:
+    app: unithon-backend-dev
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: unithon-backend-dev
+  template:
+    metadata:
+      labels:
+        app: unithon-backend-dev
+    spec:
+      containers:
+        - name: unithon-backend-dev
+          image: hyeonwoo5342/unithon-backend-dev:0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          resources:
+            limits:
+              memory: '200Mi'
+              cpu: '100m'
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          envFrom:
+          - secretRef:
+              name: unithon-backend-dev-secret
