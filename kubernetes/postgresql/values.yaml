@@ -159,7 +159,7 @@ auth:
   usePasswordFiles: false
 ## @param architecture PostgreSQL architecture (`standalone` or `replication`)
 ##
-architecture: standalone
+architecture: replication
 ## Replication configuration
 ## Ignored if `architecture` is `standalone`
 ##
