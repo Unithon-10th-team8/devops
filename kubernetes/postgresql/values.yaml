@@ -1083,7 +1083,7 @@ readReplicas:
 ## ref: https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/
 backup:
   ## @param backup.enabled Enable the logical dump of the database "regularly"
-  enabled: false
+  enabled: true
   cronjob:
     ## @param backup.cronjob.schedule Set the cronjob parameter schedule
     schedule: "@daily"
