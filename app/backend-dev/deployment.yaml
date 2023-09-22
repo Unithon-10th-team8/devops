@@ -22,9 +22,12 @@ spec:
           ports:
             - containerPort: 8000
           resources:
+            requests:
+              memory: '150Mi'
+              cpu: '100m'
             limits:
-              memory: '300Mi'
-              cpu: '300m'
+              memory: '150Mi'
+              cpu: '100m'
           livenessProbe:
             httpGet:
               path: /
