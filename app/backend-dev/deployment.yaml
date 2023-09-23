@@ -30,18 +30,6 @@ spec:
             limits:
               memory: '150Mi'
               cpu: '100m'
-          livenessProbe:
-            httpGet:
-              path: /
-              port: 8000
-            initialDelaySeconds: 30
-            periodSeconds: 10
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 8000
-            initialDelaySeconds: 15
-            periodSeconds: 10
       containers:
         - name: unithon-backend-dev
           image: hyeonwoo5342/unithon-backend-dev:3
