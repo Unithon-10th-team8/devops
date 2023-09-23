@@ -14,6 +14,21 @@ spec:
       labels:
         app: unithon-backend-main
     spec:
+      initContainers:
+        - name: unithon-backend-dev-init
+          image: hyeonwoo5342/unithon-backend-main:4
+          imagePullPolicy: Always
+          command: [ 'sh', '-c', '/app/.venv/bin/python manage.py migrate' ]
+          envFrom:
+            - secretRef:
+                name: unithon-backend-dev-secret
+          resources:
+            requests:
+              memory: '200Mi'
+              cpu: '150m'
+            limits:
+              memory: '200Mi'
+              cpu: '150m'
       containers:
         - name: unithon-backend-main
           image: hyeonwoo5342/unithon-backend-main:4
