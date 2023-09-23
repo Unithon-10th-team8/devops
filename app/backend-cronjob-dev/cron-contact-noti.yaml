@@ -22,4 +22,12 @@ spec:
                   name: cron-noti-dev-configmap
               - secretRef:
                   name: cron-noti-dev-secret
+              volumeMounts:
+                - mountPath: /etc/localtime
+                  name: timezone-config
+          volumes:
+            - name: timezone-config
+              hostPath:
+                path: /usr/share/zoneinfo/Asia/Seoul
           restartPolicy: OnFailure
+
