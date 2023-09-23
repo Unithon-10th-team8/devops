@@ -6,7 +6,7 @@ metadata:
   labels:
     app: unithon-backend-dev
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: unithon-backend-dev
@@ -47,13 +47,13 @@ spec:
             httpGet:
               path: /
               port: 8000
-            initialDelaySeconds: 30
+            initialDelaySeconds: 40
             periodSeconds: 10
           readinessProbe:
             httpGet:
               path: /
               port: 8000
-            initialDelaySeconds: 15
+            initialDelaySeconds: 35
             periodSeconds: 10
           envFrom:
           - secretRef:
