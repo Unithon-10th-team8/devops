@@ -23,26 +23,12 @@ spec:
           envFrom:
             - secretRef:
                 name: unithon-backend-dev-secret
-#          resources:
-#            requests:
-#              memory: '150Mi'
-#              cpu: '400m'
-#            limits:
-#              memory: '150Mi'
-#              cpu: '400m'
       containers:
         - name: unithon-backend-dev
           image: hyeonwoo5342/unithon-backend-dev:34
           imagePullPolicy: Always
           ports:
             - containerPort: 8000
-#          resources:
-#            requests:
-#              memory: '150Mi'
-#              cpu: '100m'
-#            limits:
-#              memory: '150Mi'
-#              cpu: '100m'
           livenessProbe:
             httpGet:
               path: /
