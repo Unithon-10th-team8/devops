@@ -26,10 +26,10 @@ spec:
           resources:
             requests:
               memory: '150Mi'
-              cpu: '200m'
+              cpu: '400m'
             limits:
               memory: '150Mi'
-              cpu: '200m'
+              cpu: '400m'
       containers:
         - name: unithon-backend-dev
           image: hyeonwoo5342/unithon-backend-dev:31
