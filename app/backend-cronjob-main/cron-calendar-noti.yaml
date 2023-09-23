@@ -19,7 +19,7 @@ spec:
                 - containerPort: 3000
               envFrom:
                 - configMapRef:
-                    name: unithon-noti-configmap
+                    name: cron-noti-main-configmap
                 - secretRef:
-                    name: unithon-noti-secret
+                    name: cron-noti-main-secret
           restartPolicy: OnFailure
