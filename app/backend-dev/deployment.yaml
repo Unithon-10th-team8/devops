@@ -19,7 +19,7 @@ spec:
         - name: unithon-backend-dev-init
           image: hyeonwoo5342/unithon-backend-dev:1
           imagePullPolicy: Always
-          command: ['sh', '-c', 'python manage.py migrate']
+          command: ['sh', '-c', '/app/.venv/bin/python manage.py migrate']
           envFrom:
             - secretRef:
                 name: unithon-backend-dev-secret
