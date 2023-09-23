@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: unithon-contact-noti-main-configmap
+  name: unithon-noti-main-configmap
   namespace: unithon
 data:
   FRONTEND_URL: "https://front.haenu.dev"
