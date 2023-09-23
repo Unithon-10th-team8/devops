@@ -13,7 +13,7 @@ spec:
         spec:
           containers:
             - name: cron-calendar-noti-dev
-              image: hyeonwoo5342/unithon-calendar-noti-dev:34
+              image: hyeonwoo5342/unithon-calendar-noti-dev:1
               imagePullPolicy: Always
               ports:
                 - containerPort: 3000
