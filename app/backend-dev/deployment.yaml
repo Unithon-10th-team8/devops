@@ -15,6 +15,33 @@ spec:
       labels:
         app: unithon-backend-dev
     spec:
+      initContainers:
+        - name: unithon-backend-dev-init
+          image: hyeonwoo5342/unithon-backend-dev:1
+          imagePullPolicy: Always
+          command: ['sh', '-c', 'python manage.py migrate']
+          envFrom:
+            - secretRef:
+                name: unithon-backend-dev-secret
+          resources:
+            requests:
+              memory: '150Mi'
+              cpu: '100m'
+            limits:
+              memory: '150Mi'
+              cpu: '100m'
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8000
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8000
+            initialDelaySeconds: 15
+            periodSeconds: 10
       containers:
         - name: unithon-backend-dev
           image: hyeonwoo5342/unithon-backend-dev:3
